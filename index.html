@@ -3,26 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>আমার প্রথম ওয়েবসাইট</title>
+  <title>আমার ঘরের রান্না</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background: #f4f6f8;
-      color: #222;
+      background: #fff8f0;
+      color: #333;
     }
     header {
-      background: #1e88e5;
+      background: #d84315;
       color: white;
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
+    header h1 { margin: 0; font-size: 2.2em; }
+    header p { margin-top: 8px; opacity: 0.9; }
     main {
-      max-width: 700px;
+      max-width: 800px;
       margin: 30px auto;
       padding: 0 20px;
     }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
     .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .card h3 { margin-top: 0; color: #d84315; }
+    .price { font-weight: bold; color: #555; }
+    section {
       background: white;
       padding: 20px;
       border-radius: 10px;
@@ -32,25 +48,43 @@
     footer {
       text-align: center;
       padding: 20px;
-      color: #666;
+      color: #888;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>স্বাগতম!</h1>
-    <p>এটা আমার প্রথম ওয়েবসাইট</p>
+    <h1>আমার ঘরের রান্না</h1>
+    <p>ঘরে তৈরি খাবার, বিশুদ্ধ উপকরণে</p>
   </header>
   <main>
-    <div class="card">
-      <h2>আমার সম্পর্কে</h2>
-      <p>এখানে নিজের কথা লিখুন।</p>
-    </div>
-    <div class="card">
-      <h2>যোগাযোগ</h2>
-      <p>এখানে ফোন নম্বর বা ইমেইল লিখুন।</p>
-    </div>
+    <section>
+      <h2>আমাদের সম্পর্কে</h2>
+      <p>আমরা একদম ঘরোয়া পরিবেশে, বিশুদ্ধ উপকরণ দিয়ে খাবার তৈরি করি। স্বাদ আর মান দুটোতেই আপোষ করি না।</p>
+    </section>
+    <section>
+      <h2>আমাদের মেনু</h2>
+      <div class="menu">
+        <div class="card">
+          <h3>বিরিয়ানি</h3>
+          <p class="price">১৫০ টাকা</p>
+        </div>
+        <div class="card">
+          <h3>খিচুড়ি</h3>
+          <p class="price">৮০ টাকা</p>
+        </div>
+        <div class="card">
+          <h3>মাছের ঝোল</h3>
+          <p class="price">১২০ টাকা</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>অর্ডার করুন</h2>
+      <p>ফোন: ০১XXXXXXXXX</p>
+      <p>ফেসবুক পেজ: আপনার পেজের লিংক এখানে দিন</p>
+    </section>
   </main>
-  <footer>© ২০২৬ আমার ওয়েবসাইট</footer>
+  <footer>© ২০২৬ আমার ঘরের রান্না</footer>
 </body>
 </html>
