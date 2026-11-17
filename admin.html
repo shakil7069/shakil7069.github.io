@@ -4,698 +4,747 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ঘরের রান্না | Admin Panel</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:#f5f5f5;
+    color:#222;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #fffaf2;
-  color: #333;
+header{
+    background:#198754;
+    color:white;
+    padding:18px;
+    text-align:center;
 }
 
-.header {
-  background: #176b45;
-  color: white;
-  padding: 25px 15px;
-  text-align: center;
+header h1{margin:0}
+
+.container{
+    max-width:1000px;
+    margin:30px auto;
+    padding:20px;
 }
 
-.container {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 15px;
+#loginBox{
+    max-width:420px;
+    margin:70px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 25px rgba(0,0,0,.12);
 }
 
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px #00000015;
-  margin-bottom: 20px;
+#loginBox h2{
+    text-align:center;
+    color:#198754;
 }
 
-h2 {
-  color: #176b45;
-  margin-bottom: 20px;
+input{
+    width:100%;
+    padding:13px;
+    margin:8px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:16px;
 }
 
-input {
-  width: 100%;
-  padding: 12px;
-  margin: 7px 0 15px;
-  border: 1px solid #ccc;
-  border-radius: 7px;
-  font-size: 16px;
+button{
+    border:0;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
 }
 
-button {
-  border: none;
-  background: #176b45;
-  color: white;
-  padding: 11px 18px;
-  border-radius: 7px;
-  cursor: pointer;
-  font-size: 15px;
+.login-btn{
+    width:100%;
+    background:#198754;
+    color:white;
+    margin-top:10px;
 }
 
-button:hover {
-  background: #104d33;
+.error{
+    color:#dc3545;
+    text-align:center;
+    margin-top:12px;
 }
 
-.google-btn {
-  background: #4285f4;
-  width: 100%;
-  font-size: 17px;
-  padding: 14px;
+#adminPanel{display:none}
+
+.topbar{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
 
-.logout {
-  background: #b42318;
+.logout{
+    background:#dc3545;
+    color:white;
 }
 
-.logout:hover {
-  background: #8f1c14;
+.add-box{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
 
-.hidden {
-  display: none;
+.add-box h2{
+    margin-top:0;
+    color:#198754;
 }
 
-.user-info {
-  margin-bottom: 20px;
-  padding: 12px;
-  background: #e5f3e9;
-  border-radius: 8px;
+.add-btn{
+    background:#198754;
+    color:white;
+    margin-top:8px;
 }
 
-.food-row {
-  display: grid;
-  grid-template-columns: 1fr 120px 80px 80px;
-  gap: 10px;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  padding: 12px 0;
+.food-list{
+    display:grid;
+    gap:15px;
 }
 
-.food-row input {
-  margin: 0;
+.food-item{
+    background:white;
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
 
-.delete-btn {
-  background: #b42318;
+.food-title{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
-.add-box {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #ddd;
+.food-price{
+    color:#198754;
+    font-weight:bold;
+    margin-bottom:15px;
 }
 
-.message {
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 7px;
-  background: #e5f3e9;
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
-@media(max-width: 650px) {
-  .food-row {
-    grid-template-columns: 1fr;
-  }
+.edit-btn{
+    background:#ffc107;
+    color:#222;
+}
+
+.delete-btn{
+    background:#dc3545;
+    color:white;
+}
+
+.status{
+    text-align:center;
+    margin:15px 0;
+    font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-  <h1>ঘরের রান্না</h1>
-  <p>Admin Panel</p>
+<header>
+    <h1>🍲 ঘরের রান্না - Admin Panel</h1>
+</header>
+
+
+<!-- LOGIN -->
+
+<div id="loginBox">
+
+    <h2>🔐 Admin Login</h2>
+
+    <input
+        type="email"
+        id="email"
+        value="spshakil2023@gmail.com"
+        placeholder="User ID / Email"
+        autocomplete="username"
+    >
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        autocomplete="current-password"
+    >
+
+    <button class="login-btn" onclick="login()">
+        লগইন করুন
+    </button>
+
+    <div id="loginError" class="error"></div>
+
 </div>
+
+
+<!-- ADMIN PANEL -->
+
+<div id="adminPanel">
 
 <div class="container">
 
-  <!-- LOGIN -->
-  <div id="loginBox" class="card">
+    <div class="topbar">
 
-    <h2>Admin Login</h2>
+        <div>
+            <strong>👤 Admin Panel</strong>
+            <div id="adminEmail"></div>
+        </div>
 
-    <p style="margin-bottom:20px;">
-      Google Account দিয়ে Admin Panel-এ প্রবেশ করুন।
-    </p>
-
-    <button id="googleLogin" class="google-btn">
-      Google দিয়ে Login করুন
-    </button>
-
-    <p id="loginMessage" class="message hidden"></p>
-
-  </div>
-
-
-  <!-- ADMIN PANEL -->
-  <div id="adminPanel" class="hidden">
-
-    <div class="card">
-
-      <div class="user-info">
-        <strong>Logged in:</strong>
-        <span id="userEmail"></span>
-      </div>
-
-      <button id="logoutBtn" class="logout">
-        Logout
-      </button>
-
-    </div>
-
-
-    <div class="card">
-
-      <h2>খাবারের মেনু</h2>
-
-      <div id="foodList"></div>
-
-
-      <div class="add-box">
-
-        <h3>নতুন খাবার যোগ করুন</h3>
-
-        <label>খাবারের নাম</label>
-
-        <input
-          type="text"
-          id="newName"
-          placeholder="যেমন: গরুর মাংস ও ভাত"
-        >
-
-        <label>দাম</label>
-
-        <input
-          type="number"
-          id="newPrice"
-          placeholder="যেমন: 200"
-        >
-
-        <label>Emoji</label>
-
-        <input
-          type="text"
-          id="newEmoji"
-          placeholder="যেমন: 🍛"
-        >
-
-        <button id="addFoodBtn">
-          খাবার যোগ করুন
+        <button class="logout" onclick="logout()">
+            Logout
         </button>
 
-      </div>
+    </div>
 
-      <p id="saveMessage" class="message hidden"></p>
+
+    <!-- ADD FOOD -->
+
+    <div class="add-box">
+
+        <h2>➕ নতুন খাবার যোগ করুন</h2>
+
+        <input
+            type="text"
+            id="newName"
+            placeholder="খাবারের নাম"
+        >
+
+        <input
+            type="number"
+            id="newPrice"
+            placeholder="দাম"
+        >
+
+        <input
+            type="text"
+            id="newEmoji"
+            placeholder="Emoji যেমন 🍛"
+        >
+
+        <button class="add-btn" onclick="addFood()">
+            খাবার যোগ করুন
+        </button>
 
     </div>
 
-  </div>
+
+    <div id="status" class="status"></div>
+
+
+    <!-- FOOD LIST -->
+
+    <div class="add-box">
+
+        <h2>🍽️ খাবারের তালিকা</h2>
+
+        <div id="foodList" class="food-list"></div>
+
+    </div>
+
+</div>
 
 </div>
 
 
-<!-- Firebase -->
-
 <script type="module">
 
-import { initializeApp } from
-"https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  onAuthStateChanged,
-  signOut
-}
-from
-"https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyC593-xJpaEEacEU25A_AHALiCbiHGHISg",
+    apiKey: "AIzaSyC593-xJpaEEacEU25_AHALiCbiHGHISg",
 
-  authDomain: "ghorer-ranna-292cf.firebaseapp.com",
+    authDomain: "ghorer-ranna-292cf.firebaseapp.com",
 
-  projectId: "ghorer-ranna-292cf",
+    projectId: "ghorer-ranna-292cf",
 
-  storageBucket: "ghorer-ranna-292cf.firebasestorage.app",
+    storageBucket: "ghorer-ranna-292cf.firebasestorage.app",
 
-  messagingSenderId: "469568922954",
+    messagingSenderId: "469568922954",
 
-  appId: "1:469568922954:web:cfb8e9d590f0b3d3c18db3",
+    appId: "1:469568922954:web:cfb8e9d590f0b3d3c18db3",
 
-  measurementId: "G-J97D5D14C2"
-
+    measurementId: "G-J97D5D14C2"
 };
 
+
+/* FIREBASE START */
 
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-const provider = new GoogleAuthProvider();
+
+/* ADMIN EMAIL */
+
+const ADMIN_EMAIL = "spshakil2023@gmail.com";
 
 
-/* ==========================================
-   এখানে তোমার Firebase-এর Gmail বসাবে
-   ========================================== */
+/* DEFAULT MENU */
 
-const ADMIN_EMAIL = "তোমার-Gmail-এখানে-লিখবে";
+const defaultMenu = [
 
+    {
+        name:"ভাত ও ডাল",
+        price:50,
+        emoji:"🍚"
+    },
 
-const loginBox =
-document.getElementById("loginBox");
+    {
+        name:"মাছের তরকারি ও ভাত",
+        price:120,
+        emoji:"🐟"
+    },
 
-const adminPanel =
-document.getElementById("adminPanel");
+    {
+        name:"মুরগির মাংস ও ভাত",
+        price:150,
+        emoji:"🍗"
+    },
 
-const googleLogin =
-document.getElementById("googleLogin");
+    {
+        name:"সবজি ভাজি",
+        price:40,
+        emoji:"🥗"
+    },
 
-const logoutBtn =
-document.getElementById("logoutBtn");
+    {
+        name:"ডিম ও ভাত",
+        price:80,
+        emoji:"🥚"
+    },
 
-const userEmail =
-document.getElementById("userEmail");
-
-const loginMessage =
-document.getElementById("loginMessage");
-
-const foodList =
-document.getElementById("foodList");
-
-const saveMessage =
-document.getElementById("saveMessage");
-
-
-/* =========================
-   GOOGLE LOGIN
-========================= */
-
-googleLogin.addEventListener("click", async () => {
-
-  try {
-
-    loginMessage.classList.add("hidden");
-
-    const result =
-      await signInWithPopup(auth, provider);
-
-    const email =
-      result.user.email;
-
-    if (
-      !email ||
-      email.toLowerCase() !==
-      ADMIN_EMAIL.toLowerCase()
-    ) {
-
-      await signOut(auth);
-
-      loginMessage.textContent =
-        "এই Gmail দিয়ে Admin Panel ব্যবহার করার অনুমতি নেই।";
-
-      loginMessage.classList.remove("hidden");
-
-      return;
+    {
+        name:"সম্পূর্ণ দুপুরের খাবার",
+        price:180,
+        emoji:"🍛"
     }
-
-  } catch(error) {
-
-    console.error(error);
-
-    loginMessage.textContent =
-      "Login করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।";
-
-    loginMessage.classList.remove("hidden");
-  }
-
-});
-
-
-/* =========================
-   LOGIN STATE
-========================= */
-
-onAuthStateChanged(auth, (user) => {
-
-  if (!user) {
-
-    loginBox.classList.remove("hidden");
-
-    adminPanel.classList.add("hidden");
-
-    return;
-  }
-
-
-  if (
-    !user.email ||
-    user.email.toLowerCase() !==
-    ADMIN_EMAIL.toLowerCase()
-  ) {
-
-    signOut(auth);
-
-    return;
-  }
-
-
-  loginBox.classList.add("hidden");
-
-  adminPanel.classList.remove("hidden");
-
-  userEmail.textContent =
-    user.email;
-
-  loadFoods();
-
-});
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-logoutBtn.addEventListener("click", async () => {
-
-  await signOut(auth);
-
-});
-
-
-/* =========================
-   DEFAULT MENU
-========================= */
-
-let foods = [
-
-  {
-    id: 1,
-    name: "ভাত ও ডাল",
-    price: 50,
-    emoji: "🍚"
-  },
-
-  {
-    id: 2,
-    name: "মাছের তরকারি ও ভাত",
-    price: 120,
-    emoji: "🐟"
-  },
-
-  {
-    id: 3,
-    name: "মুরগির মাংস ও ভাত",
-    price: 150,
-    emoji: "🍗"
-  },
-
-  {
-    id: 4,
-    name: "সবজি ভাজি",
-    price: 40,
-    emoji: "🥗"
-  },
-
-  {
-    id: 5,
-    name: "ডিম ও ভাত",
-    price: 80,
-    emoji: "🥚"
-  },
-
-  {
-    id: 6,
-    name: "সম্পূর্ণ দুপুরের খাবার",
-    price: 180,
-    emoji: "🍛"
-  }
 
 ];
 
 
-/* =========================
-   LOAD FOODS
-========================= */
+/* LOAD MENU */
 
-function loadFoods() {
+let menu = JSON.parse(
+    localStorage.getItem("ghorerRannaMenu")
+);
 
-  const saved =
-    localStorage.getItem("ghorerRannaFoods");
+if(!menu){
 
-  if (saved) {
+    menu = defaultMenu;
 
-    try {
+    saveMenu();
 
-      foods = JSON.parse(saved);
+}
 
-    } catch(error) {
 
-      console.error(error);
+/* SAVE MENU */
+
+function saveMenu(){
+
+    localStorage.setItem(
+        "ghorerRannaMenu",
+        JSON.stringify(menu)
+    );
+
+}
+
+
+/* LOGIN */
+
+window.login = async function(){
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const error =
+        document.getElementById("loginError");
+
+    error.innerText = "";
+
+
+    if(!email || !password){
+
+        error.innerText =
+            "User ID এবং Password দিন।";
+
+        return;
 
     }
 
-  }
 
-  showFoods();
+    if(
+        email.toLowerCase()
+        !== ADMIN_EMAIL.toLowerCase()
+    ){
 
-}
+        error.innerText =
+            "এই User ID দিয়ে Admin Panel ব্যবহার করা যাবে না।";
 
+        return;
 
-/* =========================
-   SHOW FOODS
-========================= */
+    }
 
-function showFoods() {
 
-  foodList.innerHTML = "";
+    try{
 
-  foods.forEach((food, index) => {
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
 
-    const row =
-      document.createElement("div");
+    }
 
-    row.className = "food-row";
+    catch(err){
 
-    row.innerHTML = `
+        console.log(err);
 
-      <input
-        type="text"
-        value="${food.name}"
-        data-index="${index}"
-        class="food-name"
-      >
+        error.innerText =
+            "User ID অথবা Password ভুল।";
 
-      <input
-        type="number"
-        value="${food.price}"
-        data-index="${index}"
-        class="food-price"
-      >
+    }
 
-      <input
-        type="text"
-        value="${food.emoji}"
-        data-index="${index}"
-        class="food-emoji"
-      >
+};
 
-      <button
-        class="delete-btn"
-        data-index="${index}"
-      >
-        মুছুন
-      </button>
 
-    `;
+/* LOGOUT */
 
-    foodList.appendChild(row);
+window.logout = async function(){
 
-  });
+    await signOut(auth);
 
+};
 
-  document
-    .querySelectorAll(".food-name")
-    .forEach(input => {
 
-      input.addEventListener("change", () => {
+/* AUTH CHECK */
 
-        const index =
-          input.dataset.index;
+onAuthStateChanged(auth,(user)=>{
 
-        foods[index].name =
-          input.value;
+    if(user){
 
-        saveFoods();
+        if(
+            user.email.toLowerCase()
+            !== ADMIN_EMAIL.toLowerCase()
+        ){
 
-      });
+            signOut(auth);
 
-    });
+            return;
 
+        }
 
-  document
-    .querySelectorAll(".food-price")
-    .forEach(input => {
 
-      input.addEventListener("change", () => {
+        document.getElementById(
+            "loginBox"
+        ).style.display = "none";
 
-        const index =
-          input.dataset.index;
 
-        foods[index].price =
-          Number(input.value);
+        document.getElementById(
+            "adminPanel"
+        ).style.display = "block";
 
-        saveFoods();
 
-      });
+        document.getElementById(
+            "adminEmail"
+        ).innerText =
+            user.email;
 
-    });
 
+        renderMenu();
 
-  document
-    .querySelectorAll(".food-emoji")
-    .forEach(input => {
+    }
 
-      input.addEventListener("change", () => {
+    else{
 
-        const index =
-          input.dataset.index;
+        document.getElementById(
+            "loginBox"
+        ).style.display = "block";
 
-        foods[index].emoji =
-          input.value;
 
-        saveFoods();
+        document.getElementById(
+            "adminPanel"
+        ).style.display = "none";
 
-      });
+    }
 
-    });
+});
 
 
-  document
-    .querySelectorAll(".delete-btn")
-    .forEach(button => {
+/* ADD FOOD */
 
-      button.addEventListener("click", () => {
-
-        const index =
-          button.dataset.index;
-
-        foods.splice(index, 1);
-
-        saveFoods();
-
-        showFoods();
-
-      });
-
-    });
-
-}
-
-
-/* =========================
-   SAVE FOODS
-========================= */
-
-function saveFoods() {
-
-  localStorage.setItem(
-    "ghorerRannaFoods",
-    JSON.stringify(foods)
-  );
-
-  saveMessage.textContent =
-    "মেনু সংরক্ষণ হয়েছে।";
-
-  saveMessage.classList.remove("hidden");
-
-  setTimeout(() => {
-
-    saveMessage.classList.add("hidden");
-
-  }, 2000);
-
-}
-
-
-/* =========================
-   ADD FOOD
-========================= */
-
-document
-  .getElementById("addFoodBtn")
-  .addEventListener("click", () => {
+window.addFood = function(){
 
     const name =
-      document.getElementById("newName")
-      .value.trim();
+        document.getElementById("newName")
+        .value.trim();
 
     const price =
-      Number(
-        document.getElementById("newPrice")
-        .value
-      );
+        Number(
+            document.getElementById("newPrice")
+            .value
+        );
 
     const emoji =
-      document.getElementById("newEmoji")
-      .value.trim() || "🍛";
+        document.getElementById("newEmoji")
+        .value.trim() || "🍽️";
 
 
-    if (!name || !price) {
+    if(!name){
 
-      alert(
-        "খাবারের নাম এবং দাম দিন।"
-      );
+        showStatus("খাবারের নাম লিখুন।");
 
-      return;
+        return;
 
     }
 
 
-    foods.push({
+    if(!price || price <= 0){
 
-      id: Date.now(),
+        showStatus("সঠিক দাম লিখুন।");
 
-      name: name,
+        return;
 
-      price: price,
+    }
 
-      emoji: emoji
+
+    menu.push({
+
+        name:name,
+        price:price,
+        emoji:emoji
 
     });
 
 
-    saveFoods();
+    saveMenu();
 
-    showFoods();
+    renderMenu();
 
 
-    document.getElementById("newName")
-      .value = "";
+    document.getElementById("newName").value = "";
+    document.getElementById("newPrice").value = "";
+    document.getElementById("newEmoji").value = "";
 
-    document.getElementById("newPrice")
-      .value = "";
 
-    document.getElementById("newEmoji")
-      .value = "";
+    showStatus("✅ নতুন খাবার যোগ হয়েছে।");
 
-  });
+};
+
+
+/* SHOW MENU */
+
+function renderMenu(){
+
+    const list =
+        document.getElementById("foodList");
+
+    list.innerHTML = "";
+
+
+    menu.forEach((food,index)=>{
+
+        const div =
+            document.createElement("div");
+
+        div.className = "food-item";
+
+
+        div.innerHTML = `
+
+            <div class="food-title">
+                ${food.emoji}
+                ${escapeHTML(food.name)}
+            </div>
+
+            <div class="food-price">
+                দাম: ৳${food.price}
+            </div>
+
+            <div class="actions">
+
+                <button
+                    class="edit-btn"
+                    onclick="editFood(${index})">
+                    ✏️ Edit
+                </button>
+
+                <button
+                    class="delete-btn"
+                    onclick="deleteFood(${index})">
+                    🗑️ Delete
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(div);
+
+    });
+
+}
+
+
+/* EDIT FOOD */
+
+window.editFood = function(index){
+
+    const food = menu[index];
+
+
+    const name =
+        prompt("খাবারের নাম:",food.name);
+
+    if(name === null) return;
+
+
+    const price =
+        prompt("দাম:",food.price);
+
+    if(price === null) return;
+
+
+    const emoji =
+        prompt("Emoji:",food.emoji);
+
+    if(emoji === null) return;
+
+
+    if(!name.trim()){
+
+        alert("খাবারের নাম খালি রাখা যাবে না।");
+
+        return;
+
+    }
+
+
+    if(!price || Number(price) <= 0){
+
+        alert("সঠিক দাম দিন।");
+
+        return;
+
+    }
+
+
+    menu[index] = {
+
+        name:name.trim(),
+        price:Number(price),
+        emoji:emoji.trim() || "🍽️"
+
+    };
+
+
+    saveMenu();
+
+    renderMenu();
+
+    showStatus("✅ খাবারের তথ্য পরিবর্তন হয়েছে।");
+
+};
+
+
+/* DELETE FOOD */
+
+window.deleteFood = function(index){
+
+    const food = menu[index];
+
+
+    if(
+        !confirm(
+            `"${food.name}" মুছে ফেলতে চান?`
+        )
+    ){
+
+        return;
+
+    }
+
+
+    menu.splice(index,1);
+
+    saveMenu();
+
+    renderMenu();
+
+    showStatus("🗑️ খাবার মুছে ফেলা হয়েছে।");
+
+};
+
+
+/* STATUS */
+
+function showStatus(message){
+
+    const status =
+        document.getElementById("status");
+
+    status.innerText = message;
+
+
+    setTimeout(()=>{
+
+        status.innerText = "";
+
+    },3000);
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(text){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
 
 </script>
 
