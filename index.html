@@ -4,13 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ঘরের রান্না | ঘরোয়া দুপুরের খাবার</title>
+
+<title>ঘরের রান্না | প্রতিদিনের ঘরোয়া খাবার</title>
 
 <style>
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -37,7 +38,7 @@ header p {
 
 nav {
   background: #104d33;
-  padding: 12px;
+  padding: 14px;
   text-align: center;
 }
 
@@ -49,36 +50,37 @@ nav a {
 }
 
 .hero {
-  text-align: center;
-  padding: 45px 15px;
   background: #e5f3e9;
+  text-align: center;
+  padding: 55px 15px;
 }
 
 .hero h2 {
+  font-size: 30px;
   color: #176b45;
-  font-size: 28px;
 }
 
 .hero p {
-  margin: 12px 0;
+  margin: 12px 0 20px;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1050px;
   margin: auto;
-  padding: 25px 15px;
+  padding: 30px 15px;
 }
 
 .section-title {
   text-align: center;
   color: #176b45;
-  margin-bottom: 25px;
   font-size: 27px;
+  margin-bottom: 25px;
 }
 
 .food-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
@@ -86,9 +88,9 @@ nav a {
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 3px 12px #00000012;
   text-align: center;
-  padding-bottom: 18px;
+  padding-bottom: 20px;
+  box-shadow: 0 3px 12px #00000015;
 }
 
 .food-image {
@@ -98,12 +100,12 @@ nav a {
 }
 
 .food-card h3 {
-  margin: 12px 0 5px;
+  margin-top: 12px;
 }
 
 .price {
+  font-size: 22px;
   color: #176b45;
-  font-size: 21px;
   font-weight: bold;
   margin: 8px;
 }
@@ -112,8 +114,8 @@ button {
   background: #176b45;
   color: white;
   border: none;
+  padding: 11px 20px;
   border-radius: 7px;
-  padding: 11px 18px;
   cursor: pointer;
   font-size: 15px;
 }
@@ -122,7 +124,17 @@ button:hover {
   background: #104d33;
 }
 
-.cart-box, .contact-box {
+.whatsapp {
+  display: inline-block;
+  background: #168b49;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.cart-box,
+.contact-box {
   background: white;
   padding: 22px;
   border-radius: 12px;
@@ -133,57 +145,66 @@ button:hover {
 .cart-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 10px;
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid #eee;
 }
 
-input, textarea {
+.cart-item button {
+  padding: 5px 12px;
+  margin-left: 5px;
+}
+
+input,
+textarea {
   width: 100%;
-  padding: 12px;
+  padding: 13px;
   margin: 8px 0 15px;
   border: 1px solid #ccc;
   border-radius: 7px;
   font-size: 16px;
+  font-family: inherit;
 }
 
 textarea {
-  min-height: 85px;
+  min-height: 90px;
 }
 
 .order-button {
   width: 100%;
   background: #168b49;
   font-size: 17px;
-  padding: 14px;
+  padding: 15px;
 }
 
-.whatsapp {
-  display: inline-block;
-  background: #168b49;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 8px;
+.small {
+  color: #777;
+  font-size: 13px;
+  margin-top: 12px;
 }
 
 footer {
   background: #104d33;
   color: white;
   text-align: center;
-  padding: 25px 12px;
-  margin-top: 35px;
-}
-
-.small {
-  color: #666;
-  font-size: 13px;
-  margin-top: 10px;
+  padding: 28px 15px;
+  margin-top: 40px;
 }
 
 @media(max-width: 500px) {
-  header h1 { font-size: 29px; }
-  nav a { margin: 0 6px; font-size: 14px; }
+  header h1 {
+    font-size: 29px;
+  }
+
+  nav a {
+    margin: 0 5px;
+    font-size: 13px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
 }
 </style>
 </head>
@@ -191,9 +212,9 @@ footer {
 <body>
 
 <header>
-  <h1>🍲 ঘরের রান্না</h1>
-  <p>ঘরের মতো স্বাদ, ভালোবাসায় তৈরি প্রতিদিনের খাবার</p>
-  <p>🏠 ঘরে তৈরি টাটকা খাবার | হোম ডেলিভারি</p>
+  <h1>ঘরের রান্না</h1>
+  <p>ঘরের মতো স্বাদ, ভালোবাসায় তৈরি খাবার</p>
+  <p>প্রতিদিন দুপুরের খাবার | হোম ডেলিভারি</p>
 </header>
 
 <nav>
@@ -204,128 +225,200 @@ footer {
 </nav>
 
 <section class="hero" id="home">
-  <h2>প্রতিদিনের দুপুরের খাবার</h2>
-  <p>পরিষ্কার-পরিচ্ছন্ন পরিবেশে যত্নসহকারে তৈরি ঘরোয়া খাবার।</p>
-  <a href="#menu" class="whatsapp">আজকের মেনু দেখুন</a>
+  <h2>প্রতিদিনের টাটকা দুপুরের খাবার</h2>
+
+  <p>
+    ঘরে তৈরি সুস্বাদু খাবার এখন আপনার হাতের নাগালে।
+    পছন্দের খাবার অর্ডার করুন।
+  </p>
+
+  <a href="#menu" class="whatsapp">
+    খাবারের মেনু দেখুন
+  </a>
 </section>
 
 <main class="container">
 
-  <section id="menu">
-    <h2 class="section-title">🍛 আজকের খাবারের মেনু</h2>
-    <div class="food-grid" id="foodGrid"></div>
-    <p class="small">
-      খাবারের নাম ও দাম প্রতিদিন পরিবর্তন করতে নিচের JavaScript-এর
-      menu তালিকাটি সম্পাদনা করুন।
-    </p>
-  </section>
+<section id="menu">
 
-  <section id="order" style="margin-top:45px">
-    <h2 class="section-title">🛒 আপনার অর্ডার</h2>
+<h2 class="section-title">
+আজকের খাবারের মেনু
+</h2>
 
-    <div class="cart-box">
-      <div id="cartItems">
-        এখনো কোনো খাবার নির্বাচন করেননি।
-      </div>
+<div class="food-grid" id="foodGrid"></div>
 
-      <h3 style="margin-top:15px">
-        মোট মূল্য: ৳ <span id="total">0</span>
-      </h3>
+<p class="small">
+নোট: প্রতিদিনের খাবারের নাম ও দাম নিচের JavaScript
+মেনু তালিকা থেকে পরিবর্তন করতে পারবেন।
+</p>
 
-      <p class="small">ডেলিভারি চার্জ প্রযোজ্য হলে আলাদাভাবে জানানো হবে।</p>
-    </div>
+</section>
 
-    <div class="contact-box">
-      <h3>আপনার তথ্য দিন</h3>
+<section id="order" style="margin-top:45px">
 
-      <form id="orderForm">
-        <label>আপনার নাম *</label>
-        <input type="text" id="customerName"
-          placeholder="আপনার নাম লিখুন" required>
+<h2 class="section-title">
+আপনার খাবারের অর্ডার
+</h2>
 
-        <label>মোবাইল নম্বর *</label>
-        <input type="tel" id="customerPhone"
-          placeholder="01XXXXXXXXX" required>
+<div class="cart-box">
 
-        <label>ডেলিভারি ঠিকানা *</label>
-        <textarea id="customerAddress"
-          placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"
-          required></textarea>
+<h3>আপনার নির্বাচিত খাবার</h3>
 
-        <label>অতিরিক্ত নির্দেশনা (ঐচ্ছিক)</label>
-        <textarea id="notes"
-          placeholder="বিশেষ কোনো নির্দেশনা থাকলে লিখুন"></textarea>
+<div id="cartItems">
+এখনো কোনো খাবার নির্বাচন করেননি।
+</div>
 
-        <button type="submit" class="order-button">
-          WhatsApp-এ অর্ডার করুন
-        </button>
-      </form>
-    </div>
-  </section>
+<h3 style="margin-top:15px">
+মোট মূল্য: ৳ <span id="total">0</span>
+</h3>
 
-  <section id="contact" style="margin-top:45px">
-    <h2 class="section-title">📞 যোগাযোগ</h2>
-    <div class="contact-box" style="text-align:center">
-      <h3>ঘরের রান্না</h3>
-      <p>অর্ডার ও বিস্তারিত জানতে WhatsApp করুন।</p>
-      <p><strong>WhatsApp: 01891597069</strong></p>
-      <a class="whatsapp"
-        href="https://wa.me/8801891597069"
-        target="_blank">
-        WhatsApp-এ যোগাযোগ করুন
-      </a>
-    </div>
-  </section>
+<p class="small">
+ডেলিভারি চার্জ আলাদাভাবে জানানো হবে।
+</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>ডেলিভারির তথ্য দিন</h3>
+
+<form id="orderForm">
+
+<label>আপনার নাম *</label>
+
+<input
+type="text"
+id="customerName"
+placeholder="আপনার নাম লিখুন"
+required
+>
+
+<label>মোবাইল নম্বর *</label>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="01XXXXXXXXX"
+required
+>
+
+<label>সম্পূর্ণ ঠিকানা *</label>
+
+<textarea
+id="customerAddress"
+placeholder="আপনার বাসার ঠিকানা লিখুন"
+required
+></textarea>
+
+<label>বিশেষ নির্দেশনা (ঐচ্ছিক)</label>
+
+<textarea
+id="notes"
+placeholder="কোনো বিশেষ নির্দেশনা থাকলে লিখুন"
+></textarea>
+
+<button type="submit" class="order-button">
+WhatsApp-এ অর্ডার করুন
+</button>
+
+</form>
+
+</div>
+</section>
+
+<section id="contact" style="margin-top:45px">
+
+<h2 class="section-title">
+যোগাযোগ করুন
+</h2>
+
+<div class="contact-box" style="text-align:center">
+
+<h3>ঘরের রান্না</h3>
+
+<p>অর্ডার করতে WhatsApp-এ যোগাযোগ করুন।</p>
+
+<p>
+<strong>মোবাইল: 01891597069</strong>
+</p>
+
+<br>
+
+<a
+class="whatsapp"
+href="https://wa.me/8801891597069"
+target="_blank"
+rel="noopener"
+>
+WhatsApp-এ যোগাযোগ করুন
+</a>
+
+</div>
+
+</section>
 
 </main>
 
 <footer>
-  <h3>🍲 ঘরের রান্না</h3>
-  <p>ঘরের খাবার, ঘরের ভালোবাসা।</p>
-  <p>© ২০২৬ ঘরের রান্না। সর্বস্বত্ব সংরক্ষিত।</p>
+
+<h3>ঘরের রান্না</h3>
+
+<p>ঘরের খাবার, ঘরের ভালোবাসা।</p>
+
+<p>হোম ডেলিভারি সার্ভিস</p>
+
+<p>© ২০২৬ ঘরের রান্না</p>
+
 </footer>
 
 <script>
 
-// প্রতিদিনের খাবারের নাম ও দাম এখানে পরিবর্তন করবেন
+// প্রতিদিনের খাবারের নাম ও দাম পরিবর্তন করুন
 
 const menu = [
-  {
-    id: 1,
-    name: "ভাত ও ডাল",
-    price: 50,
-    emoji: "🍚"
-  },
-  {
-    id: 2,
-    name: "মাছের তরকারি ও ভাত",
-    price: 120,
-    emoji: "🐟"
-  },
-  {
-    id: 3,
-    name: "মুরগির মাংস ও ভাত",
-    price: 150,
-    emoji: "🍗"
-  },
-  {
-    id: 4,
-    name: "সবজি ভাজি",
-    price: 40,
-    emoji: "🥗"
-  },
-  {
-    id: 5,
-    name: "ডিম ও ভাত",
-    price: 80,
-    emoji: "🥚"
-  },
-  {
-    id: 6,
-    name: "সম্পূর্ণ দুপুরের খাবার",
-    price: 180,
-    emoji: "🍛"
-  }
+
+{
+id: 1,
+name: "ভাত ও ডাল",
+price: 50,
+emoji: "🍚"
+},
+
+{
+id: 2,
+name: "মাছের তরকারি ও ভাত",
+price: 120,
+emoji: "🐟"
+},
+
+{
+id: 3,
+name: "মুরগির মাংস ও ভাত",
+price: 150,
+emoji: "🍗"
+},
+
+{
+id: 4,
+name: "সবজি ভাজি",
+price: 40,
+emoji: "🥗"
+},
+
+{
+id: 5,
+name: "ডিম ও ভাত",
+price: 80,
+emoji: "🥚"
+},
+
+{
+id: 6,
+name: "সম্পূর্ণ দুপুরের খাবার",
+price: 180,
+emoji: "🍛"
+}
+
 ];
 
 let cart = {};
@@ -333,127 +426,190 @@ let cart = {};
 // খাবারের মেনু দেখানো
 
 function showMenu() {
-  const grid = document.getElementById("foodGrid");
 
-  grid.innerHTML = menu.map(food => `
-    <div class="food-card">
-      <div class="food-image">${food.emoji}</div>
-      <h3>${food.name}</h3>
-      <p class="price">৳ ${food.price}</p>
-      <button onclick="addToCart(${food.id})">
-        অর্ডারে যোগ করুন
-      </button>
-    </div>
-  `).join("");
+const grid = document.getElementById("foodGrid");
+
+grid.innerHTML = menu.map(food => `
+
+<div class="food-card">
+
+<div class="food-image">
+${food.emoji}
+</div>
+
+<h3>${food.name}</h3>
+
+<p class="price">
+৳ ${food.price}
+</p>
+
+<button onclick="addToCart(${food.id})">
+অর্ডারে যোগ করুন
+</button>
+
+</div>
+
+`).join("");
+
 }
 
-// কার্টে খাবার যোগ করা
+// খাবার কার্টে যোগ করা
 
 function addToCart(id) {
-  cart[id] = (cart[id] || 0) + 1;
-  showCart();
+
+cart[id] = (cart[id] || 0) + 1;
+
+showCart();
+
 }
 
-// কার্ট থেকে খাবার বাদ দেওয়া
+// খাবারের সংখ্যা কমানো
 
 function removeFromCart(id) {
-  if (cart[id]) {
-    cart[id]--;
-    if (cart[id] <= 0) {
-      delete cart[id];
-    }
-  }
-  showCart();
+
+if (cart[id]) {
+
+cart[id]--;
+
+if (cart[id] <= 0) {
+delete cart[id];
+}
+
+}
+
+showCart();
+
 }
 
 // কার্ট দেখানো
 
 function showCart() {
-  const box = document.getElementById("cartItems");
-  let total = 0;
-  let html = "";
 
-  for (const id in cart) {
-    const food = menu.find(item => item.id == id);
-    const quantity = cart[id];
-    const subtotal = food.price * quantity;
+const box = document.getElementById("cartItems");
 
-    total += subtotal;
+let total = 0;
+let html = "";
 
-    html += `
-      <div class="cart-item">
-        <span>
-          ${food.name}<br>
-          ৳ ${food.price} × ${quantity}
-        </span>
-        <span>
-          ৳ ${subtotal}
-          <button type="button"
-            onclick="removeFromCart(${id})">
-            −
-          </button>
-        </span>
-      </div>
-    `;
-  }
+for (const id in cart) {
 
-  box.innerHTML = html || "এখনো কোনো খাবার নির্বাচন করেননি।";
-  document.getElementById("total").textContent = total;
+const food = menu.find(item => item.id == id);
+
+const quantity = cart[id];
+
+const subtotal = food.price * quantity;
+
+total += subtotal;
+
+html += `
+
+<div class="cart-item">
+
+<span>
+${food.name}<br>
+৳ ${food.price} × ${quantity}
+</span>
+
+<span>
+৳ ${subtotal}
+
+<button type="button"
+onclick="removeFromCart(${id})">
+-
+</button>
+
+</span>
+
+</div>
+
+`;
+
 }
 
-// WhatsApp-এ অর্ডার পাঠানো
+box.innerHTML =
+html || "এখনো কোনো খাবার নির্বাচন করেননি।";
+
+document.getElementById("total").textContent = total;
+
+}
+
+// WhatsApp অর্ডার পাঠানো
 
 document.getElementById("orderForm")
 .addEventListener("submit", function(e) {
 
-  e.preventDefault();
+e.preventDefault();
 
-  if (Object.keys(cart).length === 0) {
-    alert("প্রথমে খাবার নির্বাচন করুন!");
-    return;
-  }
+if (Object.keys(cart).length === 0) {
 
-  const name = document.getElementById("customerName").value.trim();
-  const phone = document.getElementById("customerPhone").value.trim();
-  const address = document.getElementById("customerAddress").value.trim();
-  const notes = document.getElementById("notes").value.trim();
+alert("প্রথমে খাবার নির্বাচন করুন!");
 
-  let total = 0;
-  let message = "🍲 ঘরের রান্না - নতুন অর্ডার\n\n";
+return;
 
-  message += "👤 নাম: " + name + "\n";
-  message += "📱 মোবাইল: " + phone + "\n";
-  message += "📍 ঠিকানা: " + address + "\n\n";
-  message += "🛒 খাবারের তালিকা:\n";
+}
 
-  for (const id in cart) {
-    const food = menu.find(item => item.id == id);
-    const subtotal = food.price * cart[id];
+const name =
+document.getElementById("customerName").value.trim();
 
-    total += subtotal;
+const phone =
+document.getElementById("customerPhone").value.trim();
 
-    message += food.name + " × " + cart[id] +
-      " = ৳" + subtotal + "\n";
-  }
+const address =
+document.getElementById("customerAddress").value.trim();
 
-  message += "\nমোট খাবারের মূল্য: ৳" + total;
-  message += "\nডেলিভারি চার্জ: আলোচনা সাপেক্ষে";
+const notes =
+document.getElementById("notes").value.trim();
 
-  if (notes) {
-    message += "\nবিশেষ নির্দেশনা: " + notes;
-  }
+let total = 0;
 
-  message += "\n\nধন্যবাদ! ❤️";
+// এখানে ইচ্ছাকৃতভাবে কোনো ইমোজি ব্যবহার করা হয়নি
 
-  const whatsappNumber = "8801891597069";
+let message = "ঘরের রান্না - নতুন অর্ডার\n\n";
 
-  const url = "https://wa.me/" + whatsappNumber +
-    "?text=" + encodeURIComponent(message);
+message += "নাম: " + name + "\n";
 
-  window.open(url, "_blank");
+message += "মোবাইল: " + phone + "\n";
+
+message += "ঠিকানা: " + address + "\n\n";
+
+message += "খাবারের তালিকা:\n";
+
+for (const id in cart) {
+
+const food = menu.find(item => item.id == id);
+
+const subtotal = food.price * cart[id];
+
+total += subtotal;
+
+message +=
+food.name + " x " + cart[id] +
+" = টাকা " + subtotal + "\n";
+
+}
+
+message += "\nমোট খাবারের মূল্য: টাকা " + total;
+
+message += "\nডেলিভারি চার্জ: আলোচনা সাপেক্ষে";
+
+if (notes) {
+
+message += "\nবিশেষ নির্দেশনা: " + notes;
+
+}
+
+message += "\n\nধন্যবাদ।";
+
+const whatsappNumber = "8801891597069";
+
+const url =
+"https://wa.me/" + whatsappNumber +
+"?text=" + encodeURIComponent(message);
+
+window.open(url, "_blank");
+
 });
 
-// প্রথমবার মেনু দেখানো
+// ওয়েবসাইট চালু
 
 showMenu();
 
